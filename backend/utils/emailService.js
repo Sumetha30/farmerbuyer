@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 const createTransporter = () => {
   // For development, use a test account
   if (process.env.NODE_ENV !== 'production') {
-    return nodemailer.createTransporter({
+      return nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
       secure: false, // true for 465, false for other ports
@@ -338,3 +338,5 @@ export const verifyEmailConfig = async () => {
     return false;
   }
 };
+
+
