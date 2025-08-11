@@ -293,4 +293,5 @@ For support and questions:
 
 ---
 
-Built with ❤️ for connecting farmers and buyers in local communities.
+Built with ❤️ for connecting farmers and buyers in local communities.#   S m a r t - F a r m e r - S y s t e m  
+ 
