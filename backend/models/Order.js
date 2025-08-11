@@ -23,11 +23,10 @@ const orderSchema = new mongoose.Schema({
   },
   unitPrice: {
     type: Number,
-    required: true
+    required: [true, 'Unit price is required']
   },
   totalPrice: {
-    type: Number,
-    required: true
+    type: Number // removed `required: true`, because we auto-calc this
   },
   status: {
     type: String,
@@ -36,7 +35,7 @@ const orderSchema = new mongoose.Schema({
   },
   pickupDate: {
     type: Date,
-    required: true
+    required: [true, 'Pickup date is required']
   },
   notes: {
     type: String,
@@ -67,8 +66,8 @@ orderSchema.index({ farmer: 1, status: 1 });
 orderSchema.index({ status: 1 });
 orderSchema.index({ pickupDate: 1 });
 
-// Middleware to set cancellation date
-orderSchema.pre('save', function(next) {
+// Middleware to set cancellation/completion dates
+orderSchema.pre('save', function (next) {
   if (this.isModified('status')) {
     if (this.status === 'cancelled' && !this.cancelledAt) {
       this.cancelledAt = new Date();
@@ -79,9 +78,9 @@ orderSchema.pre('save', function(next) {
   next();
 });
 
-// Calculate total price before saving
-orderSchema.pre('save', function(next) {
-  if (this.isModified('quantity') || this.isModified('unitPrice')) {
+// Auto-calculate totalPrice before saving
+orderSchema.pre('save', function (next) {
+  if (this.quantity && this.unitPrice) {
     this.totalPrice = this.quantity * this.unitPrice;
   }
   next();
