@@ -19,7 +19,7 @@ const produceSchema = new mongoose.Schema({
   },
   originalQuantity: {
     type: Number,
-    required: true
+    required: false
   },
   unit: {
     type: String,

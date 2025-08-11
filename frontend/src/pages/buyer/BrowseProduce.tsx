@@ -57,7 +57,7 @@ const BrowseProduce: React.FC = () => {
   const loadProduces = async () => {
     try {
       const data = await produceService.getAllProduce();
-      setProduces(data);
+      setProduces(data.produces);
     } catch (error: any) {
       toast.error('Failed to load produces');
     } finally {
