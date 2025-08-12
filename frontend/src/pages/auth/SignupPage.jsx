@@ -135,6 +135,7 @@ const SignupPage = () => {
                 <option value="">Select your role</option>
                 <option value="farmer">Farmer</option>
                 <option value="buyer">Buyer</option>
+                <option value="admin">Admin</option>
               </select>
               {errors.role && (
                 <p className="mt-1 text-sm text-red-600">{errors.role.message}</p>

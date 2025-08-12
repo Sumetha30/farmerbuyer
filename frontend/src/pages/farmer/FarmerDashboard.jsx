@@ -4,7 +4,6 @@ import { Plus, Package, ShoppingBag, BarChart } from 'lucide-react';
 import AddProduce from './AddProduce';
 import ManageProduce from './ManageProduce';
 import FarmerOrders from './FarmerOrders';
-import FarmerStats from './FarmerStats';
 
 const FarmerDashboard = () => {
   const location = useLocation();
@@ -13,7 +12,6 @@ const FarmerDashboard = () => {
     { name: 'Add Produce', href: '/farmer', icon: Plus, current: location.pathname === '/farmer' },
     { name: 'Manage Produce', href: '/farmer/manage', icon: Package, current: location.pathname === '/farmer/manage' },
     { name: 'Orders', href: '/farmer/orders', icon: ShoppingBag, current: location.pathname === '/farmer/orders' },
-    { name: 'Statistics', href: '/farmer/stats', icon: BarChart, current: location.pathname === '/farmer/stats' },
   ];
 
   return (
@@ -56,7 +54,6 @@ const FarmerDashboard = () => {
               <Route path="/" element={<AddProduce />} />
               <Route path="/manage" element={<ManageProduce />} />
               <Route path="/orders" element={<FarmerOrders />} />
-              <Route path="/stats" element={<FarmerStats />} />
             </Routes>
           </div>
         </div>

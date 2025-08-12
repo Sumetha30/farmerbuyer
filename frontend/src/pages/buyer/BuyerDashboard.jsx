@@ -4,7 +4,6 @@ import { Search, ShoppingBag, User, BarChart } from 'lucide-react';
 import BrowseProduce from './BrowseProduce';
 import MyOrders from './MyOrders';
 import BuyerProfile from './BuyerProfile';
-import BuyerStats from './BuyerStats';
 
 const BuyerDashboard = () => {
   const location = useLocation();
@@ -13,7 +12,6 @@ const BuyerDashboard = () => {
     { name: 'Browse Produce', href: '/buyer', icon: Search, current: location.pathname === '/buyer' },
     { name: 'My Orders', href: '/buyer/orders', icon: ShoppingBag, current: location.pathname === '/buyer/orders' },
     { name: 'Profile', href: '/buyer/profile', icon: User, current: location.pathname === '/buyer/profile' },
-    { name: 'Statistics', href: '/buyer/stats', icon: BarChart, current: location.pathname === '/buyer/stats' },
   ];
 
   return (
@@ -55,9 +53,7 @@ const BuyerDashboard = () => {
             <Routes>
               <Route path="/" element={<BrowseProduce />} />
               <Route path="/orders" element={<MyOrders />} />
-              <Route path="/profile" element={<BuyerProfile />} />
-              <Route path="/stats" element={<BuyerStats />} />
-            </Routes>
+              <Route path="/profile" element={<BuyerProfile />} />            </Routes>
           </div>
         </div>
       </div>
