@@ -3,22 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  /* Set border color for all elements */
   * {
     border-color: var(--border);
   }
-}
-@layer base {
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-}
-@layer base {
-  * {
-    border-color: var(--border);
-  }
-}
-@layer base {
+
+  /* Set background and text color for body */
   body {
     background-color: var(--background);
     color: var(--foreground);
